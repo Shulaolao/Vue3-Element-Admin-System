@@ -168,7 +168,6 @@ export const asyncRoutes = [
         meta: {
           icon: 'simpleForm',
           title: i18n.global.t('routes.Base_Form')
-          // roles: ['superAdmin', 'commonAdmin']
         }
       }, {
         path: 'DragForm',
@@ -177,7 +176,6 @@ export const asyncRoutes = [
         meta: {
           icon: 'dragForm',
           title: i18n.global.t('routes.Drag_Form')
-          // roles: ['superAdmin', 'commonAdmin']
         }
       }, {
         path: 'StepByStep',
@@ -186,7 +184,6 @@ export const asyncRoutes = [
         meta: {
           icon: 'stepByStep',
           title: i18n.global.t('routes.StepByStep_Form')
-          // roles: ['superAdmin', 'commonAdmin']
         }
       }
     ]
@@ -207,9 +204,7 @@ export const asyncRoutes = [
         name: '403',
         meta: {
           icon: '403',
-          title: 403,
-          // roles: ['superAdmin', 'commonAdmin'],
-          noCache: true // 不被 keep-alive 缓存
+          title: 403
         }
       }, {
         path: '404',
@@ -217,9 +212,7 @@ export const asyncRoutes = [
         name: '404',
         meta: {
           icon: '404',
-          title: 404,
-          // roles: ['superAdmin', 'commonAdmin'],
-          noCache: true // 不被 keep-alive 缓存
+          title: 404
         }
       }
     ]
@@ -242,7 +235,6 @@ export const asyncRoutes = [
         meta: {
           icon: 'inlineComponent',
           title: i18n.global.t('routes.Element_Plus')
-          // roles: ['superAdmin', 'commonAdmin']
         }
       }, {
         path: 'InlineProject',
@@ -251,7 +243,6 @@ export const asyncRoutes = [
         meta: {
           icon: 'inlineProject',
           title: i18n.global.t('routes.Project')
-          // roles: ['superAdmin', 'commonAdmin']
         }
       }
     ]
@@ -267,14 +258,11 @@ export const asyncRoutes = [
     },
     children: [
       {
-        link: '',
-        path: 'To',
+        path: 'https://github.com/Shulaolao/vue3-element-admin-system',
         name: 'External Link',
         meta: {
           title: i18n.global.t('routes.External_Link')
-          // roles: ['superAdmin', 'commonAdmin']
-        },
-        component: () => import('@/views/AboutLink/AboutLink.vue')
+        }
       }
     ]
   },
@@ -283,9 +271,6 @@ export const asyncRoutes = [
     // https://router.vuejs.org/guide/migration/index.html#removed-star-or-catch-all-routes
     path: '/:pathMatch(.*)*',
     name: 'fallback path',
-    // meta: {
-    //   title: '404'
-    // },
     redirect: '/404',
     hidden: true
   }
