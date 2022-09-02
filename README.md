@@ -1,6 +1,8 @@
 ### 简介
 
-vue-element-admin-system 是一个后台管理系统，它基于 Vue3 和 element-plus 实现，在此感谢花裤衩的 https://github.com/PanJiaChen/vue-element-admin 和 jekip 的 https://github.com/jekip/naive-ui-admin。该项目采用了最新的技术，内置了国际化解决方案，动态路由，权限验证，提供了一套比较典型的业务模型，提供了多个常用功能组件，希望能帮助你快速开发。
+​       vue-element-admin-system 是一个后台管理系统，它基于 Vue3 和 element-plus 实现，在此感谢花裤衩的 https://github.com/PanJiaChen/vue-element-admin 和 jekip 的 https://github.com/jekip/naive-ui-admin
+
+​       该项目采用了最新的技术，内置了国际化解决方案，动态路由，权限验证，提供了一套比较典型的业务模型，提供了多个常用功能组件，希望能帮助你快速开发。
 
 
 
