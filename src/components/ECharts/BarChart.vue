@@ -66,7 +66,7 @@ watch([xData, yData], (val) => {
 onMounted(() => {
   nextTick(() => {
     initChart()
-    initObserve(id.value, eChart, 300)()
+    initObserve(id.value, eChart, 100)()
   })
 })
 

@@ -354,7 +354,7 @@ const initChart = () => {
 onMounted(() => {
   nextTick(() => {
     initChart()
-    initObserve(id.value, myChart, 300)()
+    initObserve(id.value, myChart, 100)()
   })
 })
 

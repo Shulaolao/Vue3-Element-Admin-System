@@ -123,7 +123,7 @@ const initChart = () => {
 }
 onMounted(() => {
   initChart()
-  initObserve(id.value, eChart, 300)()
+  initObserve(id.value, eChart, 100)()
 })
 </script>
 

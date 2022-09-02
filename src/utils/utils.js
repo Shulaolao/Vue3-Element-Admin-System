@@ -63,23 +63,6 @@ export function firstLetterUpper (str) {
   return str.slice(0, 1).toUpperCase() + str.slice(1)
 }
 
-// /**
-//  * @param {String} el
-//  * @param {String} className
-//  **/
-// export function toggleClass (el, className) {
-//   if (!el || !className) return
-//   const dom = document.querySelector(el)
-//   const index = dom.className.indexOf(className)
-//   if (index === -1) {
-//     console.log(dom.classList)
-//     dom.className += '' + className
-//   } else {
-//     const reg = new RegExp(className)
-//     dom.className = dom.className.replace(reg, '')
-//   }
-// }
-
 /**
  * 节流
  * @param {Function} fn

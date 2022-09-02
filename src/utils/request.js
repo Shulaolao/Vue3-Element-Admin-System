@@ -37,8 +37,9 @@ request.interceptors.response.use(response => {
   return Promise.reject(new Error(error))
 })
 
-const id = 'fkqeskoktosugokl'
-const secret = 'djJOeFVmTkJYNWZISTdET2xORkd5Zz09'
+// id 与 secret 可通过 https://www.mxnzp.com/doc/list 平台免费申请
+const id = 'sqnmugmnspqditkh'
+const secret = 'akw0SkhCOVoweWhWT3FQQ3dJNHgxUT09'
 
 export default (url, method = 'GET') => {
   method = method.toUpperCase()
