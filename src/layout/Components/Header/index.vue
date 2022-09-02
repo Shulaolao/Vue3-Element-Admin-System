@@ -11,6 +11,7 @@
     <BreadCrumb class="breadcrumb" id="breadcrumb-container" v-show="settings.showBread.value" />
     <div class="nav-right">
       <HeaderSearch class="nav-right-menu-item" id="header-search" />
+      <ScreenLock />
       <div class="nav-right-menu-item" v-for="item in iconList" :key="item.name" :id="item.id">
 
         <!-- i18n 国际化 -->
@@ -61,6 +62,7 @@ import { ElMessage } from 'element-plus'
 import SvgIcon from '@/icons/SvgIcon.vue'
 import { setLocaleI18n } from '@/utils/localStorage'
 import { useRoute, useRouter } from 'vue-router'
+import ScreenLock from '@/components/ScreenLock/ScreenLock.vue'
 
 const store = useStore()
 const router = useRouter()
@@ -130,9 +132,7 @@ const handleI18n = (val) => {
   setLocaleI18n(map[val])
   // 【 ! 缺陷 】 此时 vuex 中的 permission/routes 已经拿到了由 i18n 国际化解析出来后的路由名称 name，
   //             1】重新分发 actions 无法更新 name，此时拿到的 constantRoutes、asyncRoutes 都是已经是未更新的路由
-  //             2】按照 分发action获取权限路由 -- 计算属性computed拿到routes进行渲染 ，
-  //                而利用 pinia (比较灵活)的存储方式可以解决这样的问题 https://github.com/jzfai/vue3-admin-plus
-  // 【 注 】: vuex 4.0 强烈建议使用 pinia 存储
+  //             2】按照 分发action获取权限路由 -- 计算属性computed拿到routes进行渲染
   // 使用页面重载方式进行刷新 vuex
   location.reload()
   // store.dispatch('settings/setLanguage', map[val]).then(() => {
@@ -155,8 +155,7 @@ const iconList = computed(() => [
       name: ''
     },
     event: {
-      // click: () => window.open('')
-      click: () => { }
+      click: () => window.open('https://github.com/Shulaolao/vue-element-admin-system')
     }
   }, {
     icon: languageIcon.value,
@@ -189,23 +188,26 @@ const iconList = computed(() => [
         clickScreenFull()
       }
     }
-  }, {
-    icon: 'lock',
-    component: 'svg-icon',
-    name: 'lock',
-    id: 'lock',
-    attrs: {
-      width: 18,
-      height: 18,
-      iconName: 'lock'
-    },
-    event: {
-      keypress: (event) => {
-        console.log(event)
-      },
-      click: () => { }
-    }
-  }, {
+  },
+  // {
+  //   icon: 'lock',
+  //   component: 'svg-icon',
+  //   name: 'lock',
+  //   id: 'lock',
+  //   attrs: {
+  //     width: 18,
+  //     height: 18,
+  //     iconName: 'lock'
+  //   },
+  //   event: {
+  //     keypress: (event) => {
+  //       console.log(event)
+  //     },
+  //     click: () => {
+  //     }
+  //   }
+  // },
+  {
     name: 'personal',
     id: 'personal',
     options: [
