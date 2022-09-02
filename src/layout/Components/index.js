@@ -1,0 +1,5 @@
+export { default as Header } from './Header/index.vue'
+export { default as Main } from './Main/index.vue'
+export { default as Settings } from './Settings/index.vue'
+export { default as TagsView } from './TagsView/index.vue'
+export { default as SideBar } from './SideBar/index.vue'

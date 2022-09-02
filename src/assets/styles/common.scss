@@ -1,0 +1,24 @@
+body,
+html {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+  overflow-y: overlay;
+
+  &:hover {
+    width: 11px;
+    height: 11px;
+    color: lightblue;
+  }
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background-color: #e1e1e1;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}

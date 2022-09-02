@@ -1,0 +1,22 @@
+$logoBg: #001428;
+$menuBgColor: #031120;
+$menuTextColor: #cfd1d3;
+$menuActiveColor: #fff; 
+
+$sideBarWidth: 210px;
+$settingsWidth: 280px;
+$collapseWidth: 54px;
+$navHeight: 90px;
+$tagsViewHeight: 40px;
+$tagsHeight: 35px;
+
+$collapse: all .28s cubic-bezier(0.33, 1, 0.68, 1);
+$showSettings: all .28s cubic-bezier(0.33, 1, 0.68, 1);
+
+$header-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+
+:export {
+  menuBgColor: $menuBgColor;
+  textColor: $menuTextColor;
+  activeColor: $menuActiveColor;
+}
