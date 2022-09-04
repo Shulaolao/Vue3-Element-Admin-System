@@ -1,10 +1,10 @@
 <template>
   <div class="admin-system-container">
-    <aside class="sideBar" :class="{ 'sideBar-hidden': collapse }">
+    <aside class="sideBar" :class="{ 'sideBar-collapse': collapse }">
       <SideBar class="sideBar-container" />
     </aside>
-    <section @click.prevent="showSettings = !showSettings" class="sideBar-mask" v-if="(device === 'mobile' && sideBar.opened) || (device === 'desktop' && showSettings)"
-      :class="{ 'show-settings': (device === 'mobile' && sideBar.opened) || (device === 'desktop' && showSettings) }">
+    <section @click.prevent="showSettings = !showSettings" class="sideBar-mask" v-if="showSettings"
+      :class="{ 'show-settings': showSettings }">
     </section>
     <section class="right-section" :class="{ 'collapse': collapse }">
       <div class="nav-container" :class="{
@@ -20,7 +20,7 @@
     </section>
     <Teleport to="body">
       <Transition name="settings">
-        <Settings v-if="device === 'desktop' && showSettings" />
+        <Settings v-if="showSettings" />
       </Transition>
     </Teleport>
   </div>
@@ -30,6 +30,7 @@
 import useGetters from '@/store/hooks/useGetters'
 import { Header, Main, Settings, SideBar, TagsView } from './Components'
 import { ref } from 'vue'
+
 export default {
   name: 'LayoutPage',
   components: {
@@ -38,12 +39,11 @@ export default {
   setup () {
     const showSettings = ref(false)
     const settingsGetters = useGetters('settings', ['collapse', 'fixHeader', 'showTagsView', 'fixTagsView'])
-
-    const screenGetters = useGetters('screen', ['device'])
+    // const screenGetters = useGetters('screen', ['device', 'sideBar'])
 
     return {
       ...settingsGetters,
-      ...screenGetters,
+      // ...screenGetters,
       showSettings
     }
   }
@@ -60,6 +60,7 @@ body {
 
 <style lang='scss' scoped>
 .admin-system-container {
+
   .sideBar-mask {
     position: fixed;
     top: 0;
