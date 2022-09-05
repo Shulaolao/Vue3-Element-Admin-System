@@ -1,7 +1,7 @@
 <template>
   <div class="cssCarousel-container">
-    <CSSCarousel :imgList="imgList1" :number="imgLength1" slideMode="row" ref="css" />
-    <CSSCarousel :imgList="imgList2" :number="imgLength2" slideMode="column" ref="css" />
+    <CSSCarousel :imgHeight="360" :imgWidth="260" :imgList="imgList1" :number="imgLength1" slideMode="row" class="cssCarousel" />
+    <CSSCarousel :imgWidth="320" :imgHeight="427" :imgList="imgList2" :number="imgLength2" slideMode="column" class="cssCarousel" />
   </div>
 </template>
 
@@ -44,4 +44,7 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+.cssCarousel {
+  margin: 20px;
+}
 </style>

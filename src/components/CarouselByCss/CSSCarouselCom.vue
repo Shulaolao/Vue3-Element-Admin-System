@@ -1,49 +1,89 @@
 <template>
   <div class="cssCarouselCom-container" :style="{
-    'width': slideMode === 'row' ? imgWidth + 'px' : imgWidth * 1.2 + 'px',
-    'height': slideMode === 'row' ? imgHeight * 1.2 + 'px' : imgHeight + 'px',
+    'width': imgWidth + 'px',
+    'height': imgHeight + 'px',
   }">
+    <!-- 控制转到第几张按钮 -->
+    <input type="radio" name="dir" class="dir" v-for="(item, index) in addImgList" :key="index" :id="'imgLi' + index">
+
+    <!-- 控制往左边轮播 -->
+    <input type="radio" name="dir" class="dir" v-for="(item, index) in addImgList" :key="index" :id="'left' + index">
+
+    <!-- 控制往右边轮播 -->
+    <input type="radio" name="dir" class="dir" v-for="(item, index) in addImgList" :key="index" :id="'right' + index">
+
+    <!-- 图片 -->
     <ul class="img-container" :style="{
-      'flex-direction': slideMode === 'row' ? 'row' : 'column',
+      'flex-direction': slideMode,
       'width': slideMode === 'row' ? imgWidth + 'px' : '100%',
       'height': slideMode === 'row' ? '100%' : imgHeight + 'px',
       '--s': speed + 's', '--w': imgWidth, '--h': imgHeight,
       '--n': number, '--m': slideMode
     }"
-      :class="{ 'movePlayRow': autoPlay && slideMode === 'row',
-        'movePlayColumn': autoPlay && slideMode === 'column' }">
-      <!-- 小点轮播时展示的第一个图片 -->
-      <!-- <li v-if="mode === 'fade'">
-        <router-view>
-          <img :src="addImgList[0].imgSrc" alt="" />
-        </router-view>
-      </li> -->
+      :class="{
+        'movePlayRow': autoPlay && slideMode === 'row',
+        'movePlayColumn': autoPlay && slideMode === 'column'
+      }">
       <li v-for="(item, index) in addImgList" :key="index" :class="{
         'movePlayRow': autoPlay && slideMode === 'row',
         'movePlayColumn': autoPlay && slideMode === 'column',
-        // 'fade': mode === 'fade'
-      }">
-        <router-view to='#'>
-          <img :src="item.imgSrc" alt="" :id="'imgLi' + index" />
-        </router-view>
+      }" :style="{
+  'width': slideMode === 'row' ? '100%' : imgWidth + 'px',
+  'height': slideMode === 'row' ? imgHeight + 'px' : '100%'
+}">
+          <img :src="item.imgSrc" alt="" />
       </li>
     </ul>
+
+    <!-- 播放上一个图片的按钮 -->
+    <div class="pre-Box dir-Box"
+      :style="{
+        top: slideMode === 'row' ? 'auto' : 0, left: slideMode === 'row' ? 0 : 'auto',
+        height: slideMode === 'row' ? .5 * imgHeight + 'px' : .1 * imgHeight + 'px',
+        width: slideMode === 'row' ? .2 * imgWidth + 'px' : .5 * imgWidth + 'px'
+      }">
+      <label v-for="(item, index) in addImgList" :key="index" :for="'left' + index"
+        :class="'preBtn' + index">
+        <template>
+          <SvgIcon icon-name="arrow-right" />
+        </template>
+      </label>
+    </div>
+
+    <!-- 播放下一个图片的按钮 -->
+    <div class="nex-Box dir-Box"
+      :style="{
+        bottom: slideMode === 'row' ? 'auto' : 0, right: slideMode === 'row' ? 0 : 'auto',
+        height: slideMode === 'row' ? .5 * imgHeight + 'px' : .1 * imgHeight + 'px',
+        width: slideMode === 'row' ? .2 * imgWidth + 'px' : .5 * imgWidth + 'px'
+      }">
+      <label v-for="(item, index) in addImgList" :key="index" :for="'right' + index"
+        :class="'nexBtn' + index">
+        <template>
+          <SvgIcon icon-name="arrow-left" />
+        </template>
+      </label>
+    </div>
+
     <!-- 小点轮播 已隐藏 -->
-    <ul :style="{
-      // 'flex-direction': slideMode === 'row' ? 'row' : 'column',
-      // 'height': slideMode === 'row' ? 10 'px' : '100%',
-      // 'width': slideMode === 'row' ? '100%' : 10 + 'px',
-      // 'bottom': slideMode === 'row' ? '20px' : 'auto',
-      // 'right': slideMode === 'column' ? '20px' : 'auto'
+    <!-- <ul :style="{
+      'flex-direction': slideMode === 'row' ? 'row' : 'column',
+      'height': slideMode === 'row' ? 10 + 'px' : '100%',
+      'width': slideMode === 'row' ? '100%' : 10 + 'px',
+      'bottom': slideMode === 'row' ? '20px' : 'auto',
+      'right': slideMode === 'column' ? '20px' : 'auto'
     }" class="point-container">
       <li :style="{
-        // 'margin': slideMode === 'row' ? '0 10px' : '10px 0'
-      }" v-for="(item, index) in addImgList.slice(0, -1)" :key="index"><a :href="'#imgLi' + index"></a></li>
-    </ul>
+        'margin': slideMode === 'row' ? '0 10px' : '10px 0'
+      }" v-for="(item, index) in addImgList.slice(0, -1)" :key="index">
+        <label :for="'imgLi' + index" :class="'imgLi' + index"></label>
+      </li>
+    </ul> -->
   </div>
 </template>
 
 <script>
+import SvgIcon from '@/icons/SvgIcon.vue'
 // 1 纵横向滑动轮播
 // 2 控制自动播放
 export default {
@@ -79,7 +119,7 @@ export default {
     // s 秒
     speed: {
       type: Number,
-      default: 0.8
+      default: 1
     },
     imgList: {
       required: true,
@@ -94,11 +134,14 @@ export default {
       props,
       addImgList
     }
-  }
+  },
+  components: { SvgIcon }
 }
 </script>
 
 <style lang='scss' scoped>
+// @import './control.scss';
+
 .cssCarouselCom-container {
   position: relative;
   display: flex;
@@ -107,7 +150,26 @@ export default {
   height: calc(var(--h) * 1px);
   width: 200px;
   overflow: hidden;
-  cursor: pointer;
+
+  input[type=radio] {
+    display: none;
+  }
+
+  .dir-Box {
+    position: absolute;
+
+    label {
+      display: none;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .pre-Box {
+  }
+
+  .nex-Box {
+  }
 
   ul.img-container {
     display: flex;
@@ -150,15 +212,6 @@ export default {
       height: 200px;
       transition: all calc(var(--s));
       animation: none;
-
-      // &.fade {
-      //   opacity: 0;
-      // }
-
-      // &:target {
-      //   opacity: 1;
-      //   background: #000;
-      // }
 
       &.movePlayRow {
         animation: liMoveRow calc(var(--s)) infinite;
@@ -206,17 +259,25 @@ export default {
     bottom: 10px;
     width: 100%;
     height: 10px;
-    opacity: 0;
     display: flex;
     justify-content: center;
+    align-items: center;
 
     li {
+      display: flex;
+      align-items: center;
       width: 10px;
       height: 10px;
       opacity: .5;
       margin: 0 10px;
-      background: green;
+      background: white;
       border-radius: 5px;
+
+      label {
+        border-radius: 5px;
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 }

@@ -1,0 +1,36 @@
+// 【注】本来想在 https://github.com/gd4Ark/CSS-Carousel 基础上改造封装实现可点击轮播
+//      但纯 CSS 封装实在过于复杂，难度上远远大于 JS 封装，故放弃了
+
+// $n: 5;
+
+// .cssCarouselCom-container {
+
+//   /* 每次点击按钮 重置当前焦点按钮的样式 */
+//   input[type=radio]:checked~.point-container label {
+//     background: #447fff;
+//   }
+
+//   /* 重置当前显示的左右按钮 */
+//   input[type=radio]:checked~.dir-Box label {
+//     display: none;
+//   }
+
+//   @for $index from 0 to $n {
+//     #imgLi#{$index}:checked~.point-container .imgLi#{$index} {
+//       background: #fff;
+//     }
+
+//     #left#{$index}:checked~.img-container {
+//       @if $index==0 {
+//         margin-left: calc(#{$index} * -100%);
+//       }
+
+//       @else {
+//         margin-left: calc((#{$index} - 1) * -100%);
+//       }
+//     }
+
+//     #right#{$index}:checked~.dir-Box .preBtn#{$index} {
+//       display: block;
+//     }
+//   }

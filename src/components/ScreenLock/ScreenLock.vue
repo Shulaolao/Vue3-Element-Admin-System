@@ -1,5 +1,5 @@
 <template>
-  <div class="pl-6px pr-6px mt-2px">
+  <div class="pl-6px pr-6px mt-2px" id="lock">
     <SvgIcon icon-name="lock" class="nav-svg-icon" @click="open = true" />
   </div>
   <transition enter-active-class="screen-locker-lock" leave-active-class="screen-locker-unlock">

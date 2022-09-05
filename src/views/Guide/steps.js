@@ -53,6 +53,13 @@ const steps = [
       position: 'bottom'
     }
   }, {
+    element: '#lock',
+    popover: {
+      title: 'LockScreen',
+      description: 'Lock the screen for security!',
+      position: 'left'
+    }
+  }, {
     element: '#github',
     popover: {
       title: 'My Github',
@@ -71,13 +78,6 @@ const steps = [
     popover: {
       title: 'FullScreen',
       description: 'Change the full screen make good feeling!',
-      position: 'left'
-    }
-  }, {
-    element: '#lock',
-    popover: {
-      title: 'LockScreen',
-      description: 'Lock the screen for security!',
       position: 'left'
     }
   }, {
