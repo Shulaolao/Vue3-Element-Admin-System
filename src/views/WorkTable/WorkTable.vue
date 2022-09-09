@@ -133,6 +133,9 @@ if (!store.state.user.weather) {
       store.commit('user/Set_WeatherInfo', { weather, windPower, temp, humidity })
     }
   }).catch(err => {
+    getWeather(store.state.user.city).finally(res => {
+      console.log(res)
+    })
     console.log(err)
     store.commit('user/Set_WeatherInfo', { weather: '晴天多云', windPower: '2级', temp: '25°C', humidity: '30%' })
   })
