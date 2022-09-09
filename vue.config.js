@@ -23,6 +23,7 @@ module.exports = {
     port: 7891,
     open: false,
     client: {
+      webSocketURL: 'ws://0.0.0.0:7891/ws',
       overlay: {
         warnings: false,
         errors: true
