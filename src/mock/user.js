@@ -78,20 +78,4 @@ export const userMock = [
       }
     }
   }
-  // {
-  //   url: '/upload/avatar',
-  //   type: 'post',
-  //   response: config => {
-  //     const { token } = config.body
-  //     const hasToken = Object.keys(tokens).some(item => {
-  //       return item.token === token
-  //     })
-  //     if (hasToken) {
-  //       return {
-  //         code: 20000,
-  //         data:
-  //       }
-  //     }
-  //   }
-  // }
 ]

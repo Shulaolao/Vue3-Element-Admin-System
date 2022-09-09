@@ -5,11 +5,12 @@ import { ElMessage } from 'element-plus'
 
 const request = axios.create({
   baseURL: process.env.VUE_APP_BASE_API,
-  timeout: 3000,
+  timeout: 2000,
   headers: {
-    'Access-Control-Allow-Credentials': true,
-    'Access-Control-Allow-Origin': 'http://localhost:7891',
-    'Content-Type': 'application/json'
+    'Access-Control-Allow-Credentials': 'true',
+    'Access-Control-Allow-Origin': 'true',
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Methods': 'POST, GET'
   }
 })
 
@@ -38,8 +39,8 @@ request.interceptors.response.use(response => {
 })
 
 // id 与 secret 可通过 https://www.mxnzp.com/doc/list 平台免费申请
-const id = 'sqnmugmnspqditkh'
-const secret = 'akw0SkhCOVoweWhWT3FQQ3dJNHgxUT09'
+const id = 'fkqeskoktosugokl'
+const secret = 'djJOeFVmTkJYNWZISTdET2xORkd5Zz09'
 
 export default (url, method = 'GET') => {
   method = method.toUpperCase()

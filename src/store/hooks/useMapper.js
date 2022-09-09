@@ -6,7 +6,6 @@ export function useStateMapper (mapper, mapFn) {
   const storeStateFns = mapFn(mapper)
   const storeState = {}
 
-  console.log(storeStateFns)
   Object.keys(storeStateFns).forEach(fnKey => {
     const fn = storeStateFns[fnKey].bind({ $store: store })
     storeState[fnKey] = computed(fn)

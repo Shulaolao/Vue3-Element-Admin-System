@@ -22,5 +22,5 @@ export const getWeather = city => {
 }
 
 export const getAllCity = () => {
-  return request('api/address/list', 'get')
+  return request('/api/address/list', 'get')
 }
