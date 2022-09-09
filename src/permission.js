@@ -31,7 +31,7 @@ router.beforeEach(async (to, from, next) => {
           accessRoutes.forEach(route => {
             router.addRoute(route)
           })
-          next({ ...to, replace: true })
+          next({ path: to.fullPath, replace: true })
         } catch (error) {
           // console.log('hasToken and catch error')
           await store.dispatch('user/resetToken')
