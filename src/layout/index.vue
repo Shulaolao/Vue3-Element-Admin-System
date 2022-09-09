@@ -39,11 +39,9 @@ export default {
   setup () {
     const showSettings = ref(false)
     const settingsGetters = useGetters('settings', ['collapse', 'fixHeader', 'showTagsView', 'fixTagsView'])
-    // const screenGetters = useGetters('screen', ['device', 'sideBar'])
 
     return {
       ...settingsGetters,
-      // ...screenGetters,
       showSettings
     }
   }
