@@ -1,7 +1,7 @@
 <template>
   <div class="Logo-container" :class="{ 'collapse': collapse }">
     <Transition name="sideBarLogoFade">
-      <router-link class="sideBar-logo-link" v-if="!collapse" key="collapse" to="/DashBoard/WorkTable">
+      <router-link class="sideBar-logo-link" v-if="!collapse" :key="new Date()" to="/WorkTable"  @click="handleReload">
         <img :src="LogoImg" alt="" id="logo-container">
         <span>{{ title }}</span>
       </router-link>
@@ -15,6 +15,8 @@
 <script>
 import LogoImg from '@/assets/images/Small tree.jpg'
 import useGetters from '@/store/hooks/useGetters'
+import { debounce } from '@/utils/utils'
+import { inject } from 'vue'
 
 export default {
   setup () {
@@ -23,9 +25,11 @@ export default {
       title: 'ShuLao Admin',
       LogoImg
     }
+    const handleReload = debounce(inject('viewReload'), 600)
     return {
       ...settingsGetters,
-      ...systemInfo
+      ...systemInfo,
+      handleReload
     }
   }
 }
