@@ -23,8 +23,6 @@ module.exports = {
     port: 7891,
     open: false,
     client: {
-      // 修复连接
-      webSocketURL: process.env.NODE_ENV === 'production' ? 'ws://10.0.20.7:7891/ws' : 'ws://localhost:7891/ws',
       overlay: {
         warnings: false,
         errors: true
