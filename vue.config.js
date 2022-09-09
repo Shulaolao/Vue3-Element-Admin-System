@@ -27,13 +27,14 @@ module.exports = {
         warnings: false,
         errors: true
       }
+    },
+    proxy: {
+      '/api/': {
+        target: 'https://www.mxnzp.com',
+        changeOrigin: true,
+        ws: false
+      }
     }
-    // proxy: {
-    //   '/api/': {
-    //     target: 'https://www.mxnzp.com',
-    //     changeOrigin: true
-    //   }
-    // }
   },
   pluginOptions: {
     // 插件预加载 scss 文件
