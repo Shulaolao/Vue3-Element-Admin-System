@@ -8,24 +8,16 @@ import { nextTick, provide, ref } from 'vue'
 
 const activeReload = ref(true)
 
-// 提供注入
-provide('viewReload', reload)
-
-// 提供注入的函数必须为 function 声明，（） => {} 无效
-function reload () {
+const reload = () => {
   activeReload.value = false
   nextTick(() => {
     activeReload.value = true
     console.log('reload')
   })
 }
-// const reload = () => {
-//   activeReload.value = false
-//   nextTick(() => {
-//     activeReload.value = true
-//     console.log('reload')
-//   })
-// }
+// 提供注入
+provide('viewReload', reload)
+
 </script>
 
 <style lang="scss">
