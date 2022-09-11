@@ -23,6 +23,8 @@ module.exports = {
     port: 7891,
     open: false,
     client: {
+      // resolve WebSocket connect fail
+      // 接受公网 ip 通信
       webSocketURL: 'ws://0.0.0.0:7891/ws',
       overlay: {
         warnings: false,
@@ -35,7 +37,12 @@ module.exports = {
         changeOrigin: true,
         ws: false
       }
-    }
+    },
+    // resolve 域名访问 ‘Invalid Host header’ 的情况
+    // 配置允许访问的开发服务器的域名服务
+    allowedHosts: [
+      'shulaoya.fun'
+    ]
   },
   pluginOptions: {
     // 插件预加载 scss 文件
