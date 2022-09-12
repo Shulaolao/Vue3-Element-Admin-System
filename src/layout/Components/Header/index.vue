@@ -117,9 +117,8 @@ const handlePersonal = async (val) => {
     await store.dispatch('user/logout').then(res => {
       ElMessage.success('success')
       router.push({ path: '/Login?redirect=' + route.fullPath })
-      console.log('/Login?redirect=' + route.fullPath)
-    }).catch(() => {
-      ElMessage.error('fail')
+    }).catch(err => {
+      console.log('if you meet the api error, please refresh ~')
     })
   }
 }
