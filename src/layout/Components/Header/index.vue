@@ -116,11 +116,11 @@ const handlePersonal = async (val) => {
     // 在 token 没清除完之前路由就进行了跳转到 Login，所以会被重定向到 '/404'
     await store.dispatch('user/logout').then(res => {
       ElMessage.success('success')
+      router.push({ path: '/Login?redirect=' + route.fullPath })
+      console.log('/Login?redirect=' + route.fullPath)
     }).catch(() => {
       ElMessage.error('fail')
     })
-    router.push({ path: '/Login?redirect=' + route.fullPath })
-    console.log('/Login?redirect=' + route.fullPath)
   }
 }
 

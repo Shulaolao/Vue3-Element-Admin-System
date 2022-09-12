@@ -17,7 +17,6 @@ router.beforeEach(async (to, from, next) => {
     } else {
       const hasRoles = store.state.user.roles && store.state.user.roles.length > 0
       if (hasRoles) {
-        // console.log('next')
         next()
       } else {
         // console.log('hasToken but no userInfo')
@@ -31,7 +30,8 @@ router.beforeEach(async (to, from, next) => {
           accessRoutes.forEach(route => {
             router.addRoute(route)
           })
-          next({ path: to.fullPath, replace: true })
+          // resolve 第一次登录时（redirect 为空），将路由跳转到 /WorkTable
+          next({ path: '/WorkTable', replace: true })
         } catch (error) {
           // console.log('hasToken and catch error')
           await store.dispatch('user/resetToken')
@@ -39,7 +39,7 @@ router.beforeEach(async (to, from, next) => {
             message: error || 'Has Error',
             type: 'error'
           })
-          next(`/Login?redirect==${to.path}`)
+          next(`/Login?redirect=${to.path}`)
         }
       }
     }
@@ -54,6 +54,6 @@ router.beforeEach(async (to, from, next) => {
   }
 })
 
-router.afterEach(() => {
+router.afterEach((to) => {
   NProgress.done()
 })

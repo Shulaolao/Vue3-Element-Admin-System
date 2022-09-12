@@ -3,7 +3,7 @@
     <div class="sky-bg"></div>
     <div class="wave-7 setTransform"></div>
     <div class="wave-6 setTransform"></div>
-    <router-link class="wave-island setTransform" to="/DashBoard/WorkTable">
+    <router-link class="wave-island setTransform" to="/WorkTable">
       <img src="http://res.cloudinary.com/andrewhani/image/upload/v1524501929/404/island.svg" alt="Island">
     </router-link>
     <div class="wave-5 setTransform"></div>
