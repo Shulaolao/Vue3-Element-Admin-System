@@ -118,6 +118,7 @@ const handlePersonal = async (val) => {
       ElMessage.success('success')
       router.push({ path: '/Login?redirect=' + route.fullPath })
     }).catch(err => {
+      console.log(err)
       console.log('if you meet the api error, please refresh ~')
     })
   }

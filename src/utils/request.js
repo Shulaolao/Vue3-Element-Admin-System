@@ -30,12 +30,7 @@ request.interceptors.response.use(response => {
   nProgress.done()
   return response
 }, (error) => {
-  ElMessage({
-    type: 'error',
-    message: error.message,
-    duration: 5 * 1000
-  })
-  return Promise.reject(new Error(error))
+  console.log(error)
 })
 
 // id 与 secret 可通过 https://www.mxnzp.com/doc/list 平台免费申请
