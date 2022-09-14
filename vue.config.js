@@ -20,6 +20,7 @@ module.exports = {
     }
   },
   devServer: {
+    host: 'shulaoya.fun',
     port: 7891,
     open: false,
     client: {
