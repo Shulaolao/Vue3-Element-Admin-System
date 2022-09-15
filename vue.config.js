@@ -38,6 +38,7 @@ module.exports = {
         ws: false
       }
     },
+    historyApiFallback: true,
     // resolve 域名访问 ‘Invalid Host header’ 的情况
     // 配置允许访问的开发服务器的域名服务
     allowedHosts: [
