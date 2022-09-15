@@ -43,7 +43,7 @@ module.exports = {
     // 配置允许访问的开发服务器的域名服务
     allowedHosts: [
       'shulaoya.fun',
-      'adminsystem.shulaoya.fun'
+      '.shulaoya.fun'
     ]
   },
   pluginOptions: {
