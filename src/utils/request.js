@@ -11,7 +11,7 @@ const request = axios.create({
     // 'Access-Control-Allow-Origin': 'VM-20-7-centos',
     'Access-Control-Allow-Origin': '*',
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Headers': 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild',
+    // 'Access-Control-Allow-Headers': 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild',
     'Access-Control-Allow-Methods': 'POST, GET'
   }
 })
