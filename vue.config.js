@@ -11,7 +11,7 @@ function resolve (dir) {
 module.exports = {
   // https://webpack.js.org/configuration/resolve/#resolvefallback
   // problem: Webpack 5 no longer polyfills Node.js core modules automatically
-  // solve in vue-cli5:
+  // resolve in vue-cli5:
   configureWebpack: {
     resolve: {
       fallback: {
