@@ -8,7 +8,7 @@ const request = axios.create({
   timeout: 2000,
   headers: {
     'Access-Control-Allow-Credentials': 'true',
-    'Access-Control-Allow-Origin': 'true',
+    'Access-Control-Allow-Origin': '*',
     'Content-Type': 'application/json',
     'Access-Control-Allow-Methods': 'POST, GET'
   }
