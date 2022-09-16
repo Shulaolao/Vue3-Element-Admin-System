@@ -32,7 +32,7 @@ module.exports = {
       }
     },
     proxy: {
-      '/api/': {
+      '/api': {
         target: 'https://www.mxnzp.com',
         changeOrigin: true,
         ws: false
