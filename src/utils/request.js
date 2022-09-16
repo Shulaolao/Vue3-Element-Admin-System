@@ -8,10 +8,8 @@ const request = axios.create({
   timeout: 2000,
   headers: {
     'Access-Control-Allow-Credentials': 'true',
-    // 'Access-Control-Allow-Origin': 'VM-20-7-centos',
-    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Origin': 'true',
     'Content-Type': 'application/json',
-    // 'Access-Control-Allow-Headers': 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild',
     'Access-Control-Allow-Methods': 'POST, GET'
   }
 })
